@@ -1,33 +1,28 @@
-cmake_minimum_required(VERSION 3.7)
 
-# Define project name
-project(opencvtest)
-
-# Find OpenCV, you may need to set OpenCV_DIR variable to the absolute path to the directory containing OpenCVConfig.cmake file via the command line or GUI
-find_package(OpenCV REQUIRED)
-
-# If the package has been found, several variables will be set, you can find the full list with descriptions in the OpenCVConfig.cmake file.
-# Print some message showing some of them
-message(STATUS "OpenCV library status:")
-message(STATUS "    version: ${OpenCV_VERSION}")
-message(STATUS "    libraries: ${OpenCV_LIBS}")
-message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
-
-if(CMAKE_VERSION VERSION_LESS "2.8.11")
-  # Add OpenCV headers location to your include paths
-  include_directories(${OpenCV_INCLUDE_DIRS})
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
 endif()
 
-# Declare the executable target built from your sources
-add_executable(opencvtest main.cpp)
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
-# Link your application with OpenCV libraries
-target_link_libraries(opencvtest ${OpenCV_LIBS})
 
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+cmake_minimum_required(VERSION 3.12)
+project(pdi)
+set(CMAKE_CXX_STANDARD 11)
+find_package( OpenCV REQUIRED )
+find_package( Boost REQUIRED )
 
-include(CPack)
+find_package(OpenMP REQUIRED)
+if(NOT TARGET OpenMP::OpenMP_CXX)
+    add_library(OpenMP_TARGET INTERFACE)
+    add_library(OpenMP::OpenMP_CXX ALIAS OpenMP_TARGET)
+    target_compile_options(OpenMP_TARGET INTERFACE ${OpenMP_CXX_FLAGS})
+    find_package(Threads REQUIRED)
+    target_link_libraries(OpenMP_TARGET INTERFACE Threads::Threads)
+    target_link_libraries(OpenMP_TARGET INTERFACE ${OpenMP_CXX_FLAGS})
+endif()
 
-include(CTest)
-enable_testing()
+
+include_directories(.)
+add_executable(pdi Main.cpp Color.cpp Color.hpp Common.hpp Filter.cpp Filter.hpp Noise.hpp Noise.cpp)
+target_link_libraries( pdi ${OpenCV_LIBS} OpenMP::OpenMP_CXX)
