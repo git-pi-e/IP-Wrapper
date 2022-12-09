@@ -57,7 +57,7 @@ git clone https://github.com/Neo-PL/IP-Wrapper.git
 
 3. Make sure you have cmake & make installed, To install run,
 ```bash
-sudo apt-get install cmake make
+sudo apt-get install cmake make libboost-all-dev
 ```
 
 and then run the following set of commands.
