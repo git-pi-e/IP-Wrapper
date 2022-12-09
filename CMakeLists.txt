@@ -24,5 +24,5 @@ endif()
 
 
 include_directories(.)
-add_executable(pdi Main.cpp Color.cpp Color.hpp Common.hpp Filter.cpp Filter.hpp Noise.hpp Noise.cpp)
+add_executable(pdi main.cpp Color.cpp Color.hpp Common.hpp Filter.cpp Filter.hpp Noise.hpp Noise.cpp)
 target_link_libraries( pdi ${OpenCV_LIBS} OpenMP::OpenMP_CXX)
