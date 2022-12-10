@@ -131,7 +131,7 @@ The above commands generate salt and pepper noise in the image provided and gene
 
 2. Custom Mask Filter (E.g. Gaussian Mask - Smoothens Images)
 ```bash
-./pdi lenn.png color 30 ./kernels/gaussian.txt
+./pdi lenna.png color 30 ./kernels/gaussian.txt
 ```
 The above command creates a custom Mask based on the matrix value provided in the gaussian.txt file. Extensive Documentation can be found on GitHub.
 
