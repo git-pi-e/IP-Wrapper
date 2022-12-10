@@ -52,7 +52,7 @@ mkdir check && cd check
 
 2. Clone the repository from Github.
 ```bash
-git clone https://github.com/Neo-PL/IP-Wrapper.git
+git clone https://github.com/Neo-PL/IP-Wrapper.git && cd IP-Wrapper
 ```
 
 3. Make sure you have cmake & make installed, To install run,
