@@ -64,7 +64,11 @@ and then run the following set of commands.
 ```bash
 cmake . && make
 ```
-
+We have made a script for the test cases, just put the follwoing command in the terminal and go to the folders test_color for the division in RGB channel and folder test_saltpepper for salt and pepper filter on the images present in the dataset folder.
+Command:
+```bash
+./run-tests.sh
+```
 Once you have successfully executed all the steps, now you can run the application using the pdi executable file.
 
 ## Usage - Test Cases
