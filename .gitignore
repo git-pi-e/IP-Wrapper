@@ -4,3 +4,5 @@ CMakeFiles
 
 .vscode/
 *cache*
+test_color/
+test_saltpepper/

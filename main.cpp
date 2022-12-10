@@ -39,9 +39,12 @@ int main(int argc, char const *argv[])
         filter_opt = std::strtol(argv[i], NULL, 10);
 
         std::string file_name = std::string(argv[1]);
+        std::string extension = file_name.substr(file_name.find_last_of('.'),file_name.size()-1);
 
-        file_name = file_name.substr(0, file_name.length() - 4); // remove extension
+        file_name = file_name.substr(file_name.find_last_of("/")+1,file_name.find_last_of("."));
+        file_name = file_name.substr(0,file_name.find_last_of(".")); // remove extension
 
+	std::cout << file_name << std::endl;
         std::string output_name = file_name;
 
         switch (filter_opt)
@@ -216,7 +219,7 @@ int main(int argc, char const *argv[])
             break;
         }
 
-        output_name += ".png";
+        output_name += extension; //file_name.substr(file_name.find_last_of("."),file_name.size()-1);
         imwrite(output_name, img_out);
         std::cout << "...Output image saved to: " + output_name << "\n\n";
     }
