@@ -1,4 +1,4 @@
-# Install script for directory: /home/harsh/popl/IP-Wrapper
+# Install script for directory: /home/geekyyash/popl implemet/check/IP-Wrapper
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/harsh/popl/IP-Wrapper/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/geekyyash/popl implemet/check/IP-Wrapper/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
